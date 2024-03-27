@@ -15,10 +15,10 @@ import {map} from "rxjs/operators";
 })
 export class AppComponent implements OnInit{
 
-  constructor(private httpClient:HttpClient){}
+  constructor(private httpClient:HttpClient, private messageService: MessageService ){}
 
   private baseURL:string='http://localhost:8080';
-
+  welcomeString: string = "welcome"
   private getUrl:string = this.baseURL + '/room/reservation/v1/';
   private postUrl:string = this.baseURL + '/room/reservation/v1';
   public submitted!:boolean;
@@ -29,6 +29,9 @@ export class AppComponent implements OnInit{
   currentCheckOutVal!:string;
 
     ngOnInit(){
+      this.messageService.getMessage().subscribe( (data:any) => {
+        this.welcomeString = data.response;
+      });
       this.roomsearch= new FormGroup({
         checkin: new FormControl(' '),
         checkout: new FormControl(' ')
