@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import { Component, OnInit } from "@angular/core";
+import {FormControl, FormGroup} from "@angular/forms";
 import {HttpClient, HttpResponse,HttpHeaders} from "@angular/common/http";
-import { Observable } from 'rxjs';
+import { Observable } from "rxjs";
 import {map} from "rxjs/operators";
 
 
