@@ -4,7 +4,8 @@ import {HttpClient, HttpResponse,HttpHeaders} from "@angular/common/http";
 import { Observable } from "rxjs";
 import {map} from "rxjs/operators";
 
-
+import {TimeService} from "./time.service";
+import {dateTimestampProvider} from "rxjs/internal/scheduler/dateTimestampProvider";
 
 
 
@@ -15,10 +16,13 @@ import {map} from "rxjs/operators";
 })
 export class AppComponent implements OnInit{
 
-  constructor(private httpClient:HttpClient, private messageService: MessageService ){}
+  constructor(private httpClient:HttpClient,
+              private messageService: MessageService,
+              private timeService: TimeService){}
 
   private baseURL:string='http://localhost:8080';
-  welcomeString: string = "welcome"
+  public welcomeString: string = "welcome"
+  public timeString: string = "time"
   private getUrl:string = this.baseURL + '/room/reservation/v1/';
   private postUrl:string = this.baseURL + '/room/reservation/v1';
   public submitted!:boolean;
@@ -31,6 +35,9 @@ export class AppComponent implements OnInit{
     ngOnInit(){
       this.messageService.getMessage().subscribe( (data:any) => {
         this.welcomeString = data.response;
+      });
+      this.timeService.getTime().subscribe((data:any) => {
+        this.timeString = data.response;
       });
       this.roomsearch= new FormGroup({
         checkin: new FormControl(' '),
