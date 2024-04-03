@@ -30,6 +30,8 @@ import java.time.format.DateTimeFormatter;
             String eastern = zonedTime.withZoneSameInstant(ET).toLocalTime().format(dtf).toString();
             String mountain = zonedTime.withZoneSameInstant(MT).toLocalTime().format(dtf).toString();
             String utc = zonedTime.withZoneSameInstant(UTC).toLocalTime().format(dtf).toString();
+
+            return new StringResponse(date + " " + eastern + "ET | " + mountain + "MT | " + utc + "UTC");
         }
     }
 }
