@@ -1,8 +1,5 @@
 package edu.wgu.d387_sample_code.rest;
 
-public class TimeZoneController {
-package edu.wgu.d387_sample_code.rest;
-
 import edu.wgu.d387_sample_code.model.response.StringResponse;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -34,4 +31,3 @@ import java.time.format.DateTimeFormatter;
             return new StringResponse(date + " " + eastern + "ET | " + mountain + "MT | " + utc + "UTC");
         }
     }
-}
