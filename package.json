@@ -12758,5 +12758,8 @@
         "tslib": "^2.3.0"
       }
     }
+  },
+  "dependencies": {
+    "@angular/core": "^14.3.0"
   }
 }
