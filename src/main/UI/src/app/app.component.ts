@@ -4,6 +4,7 @@ import {HttpClient, HttpResponse,HttpHeaders} from "@angular/common/http";
 import { Observable } from "rxjs";
 import {map} from "rxjs/operators";
 import {Location,LocationStrategy } from "@angular/common";
+import { MessageService } from './message.service';
 
 import {TimeService} from "./time.service";
 import {dateTimestampProvider} from "rxjs/internal/scheduler/dateTimestampProvider";
@@ -19,11 +20,13 @@ export class AppComponent implements OnInit{
 
   constructor(private httpClient:HttpClient,
               private messageService: MessageService,
-              private timeService: TimeService){}
-
-  constructor(private httpClient:HttpClient,
+              private timeService: TimeService,
               private location: Location,
               private locationStrategy: LocationStrategy){}
+
+ // constructor(private httpClient:HttpClient,
+ //             private location: Location,
+ //             private locationStrategy: LocationStrategy){}
 
   // private baseURL:string='http://localhost:8080';
   private baseURL:string=this.location.path();

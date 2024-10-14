@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 import {HashLocationStrategy, LocationStrategy} from "@angular/common";
+import { MessageService } from './message.service';
 
 
 
@@ -20,7 +21,7 @@ import {HashLocationStrategy, LocationStrategy} from "@angular/common";
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
